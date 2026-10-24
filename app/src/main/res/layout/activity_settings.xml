@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_settings"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- État -->
+        <TextView
+            style="@style/SectionLabel"
+            android:text="@string/section_status" />
+        <TextView
+            android:id="@+id/textAccessibilityStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"
+            android:padding="12dp"
+            android:background="@color/surface"
+            android:layout_marginBottom="2dp" />
+
+        <TextView
+            android:id="@+id/textCameraStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"
+            android:padding="12dp"
+            android:background="@color/surface"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Sécurité -->
+        <TextView
+            style="@style/SectionLabel"
+            android:text="@string/section_security" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonChangePin"
+            style="@style/OutlineButton"
+            android:text="@string/action_change_pin" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editMaxAttempts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/action_max_attempts"
+                android:inputType="number"
+                android:maxLength="2" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Email -->
+        <TextView
+            style="@style/SectionLabel"
+            android:text="@string/section_email" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editSmtpHost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_smtp_host"
+                android:inputType="textUri" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editSmtpPort"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_smtp_port"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editSmtpUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_smtp_user"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editSmtpPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_smtp_pass"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editRecipient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_recipient"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSaveEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_save_email"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonTestEmail"
+            style="@style/OutlineButton"
+            android:text="@string/action_test_email" />
+
+        <!-- Apps -->
+        <TextView
+            style="@style/SectionLabel"
+            android:text="@string/section_apps" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonChooseApps"
+            style="@style/OutlineButton"
+            android:text="@string/action_choose_apps" />
+
+        <!-- Journal -->
+        <TextView
+            style="@style/SectionLabel"
+            android:text="@string/section_log" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonViewLog"
+            style="@style/OutlineButton"
+            android:text="@string/action_view_log" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonClearLog"
+            style="@style/OutlineButton"
+            android:text="@string/action_clear_log" />
+
+        <!-- À propos -->
+        <TextView
+            style="@style/SectionLabel"
+            android:text="@string/section_about" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonReviewConsent"
+            style="@style/OutlineButton"
+            android:text="@string/action_review_consent"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</ScrollView>

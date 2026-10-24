@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IntruderSnap</string>
+    <string name="notif_channel_capture">IntruderSnap — protection active</string>
+    <string name="notif_capture_title">IntruderSnap est actif</string>
+    <string name="notif_capture_text">Protection par code PIN activée sur cet appareil.</string>
+
+    <string name="accessibility_service_description">Permet à IntruderSnap de détecter quand une application que vous avez choisi de protéger passe au premier plan, afin d\'afficher l\'écran de verrouillage par-dessus. IntruderSnap ne lit ni n\'enregistre le contenu des autres applications.</string>
+
+    <!-- Consentement -->
+    <string name="title_consent">Avant de commencer</string>
+    <string name="consent_heading">Comment fonctionne IntruderSnap</string>
+    <string name="consent_body">
+"IntruderSnap est un outil de protection que VOUS installez sur VOTRE PROPRE téléphone.\n\n
+• Vous choisissez un code PIN qui protège l\'application elle-même et, si vous le souhaitez, d\'autres applications de votre choix.\n\n
+• Si quelqu\'un essaie d\'ouvrir une application protégée et se trompe de code un certain nombre de fois (vous choisissez ce nombre), IntruderSnap prend UNE photo avec la caméra frontale au moment de l\'échec.\n\n
+• Cette photo est envoyée automatiquement à une adresse email que VOUS configurez vous-même, pour vous permettre d\'identifier qui a tenté d\'accéder à votre appareil.\n\n
+• IntruderSnap ne se cache jamais : l\'icône de l\'application reste visible, une notification permanente signale que la protection est active, et chaque capture est consignée dans un journal local que vous pouvez consulter et effacer à tout moment.\n\n
+• Cette fonctionnalité est destinée à protéger VOTRE PROPRE appareil contre un accès non autorisé. Installer ou utiliser ce type d\'application pour surveiller une autre personne à son insu (conjoint, enfant majeur, collègue, etc.) peut être illégal selon votre juridiction et n\'est pas l\'usage prévu par cette application.\n\n
+En continuant, vous confirmez avoir comprisque ce téléphone vous appartient et que vous consentez à l\'activation de la capture photo en cas d\'échec de déverrouillage."
+    </string>
+    <string name="consent_checkbox">J\'ai lu et je comprends le fonctionnement décrit ci-dessus</string>
+    <string name="consent_accept">J\'accepte et je continue</string>
+
+    <!-- Configuration du PIN -->
+    <string name="title_setup_pin">Choisir un code PIN</string>
+    <string name="setup_pin_hint">Code PIN (4 à 8 chiffres)</string>
+    <string name="setup_pin_confirm_hint">Confirmer le code PIN</string>
+    <string name="setup_pin_error_length">Le code doit contenir entre 4 et 8 chiffres.</string>
+    <string name="setup_pin_error_mismatch">Les deux codes ne correspondent pas.</string>
+    <string name="setup_pin_save">Valider</string>
+
+    <!-- Verrouillage -->
+    <string name="lock_enter_pin">Entrez le code PIN</string>
+    <string name="lock_wrong_pin">Code incorrect (%1$d/%2$d)</string>
+    <string name="lock_app_locked_label">Application protégée par IntruderSnap</string>
+    <string name="lock_capture_warning">Prochain échec : une photo sera prise et envoyée.</string>
+
+    <!-- Dashboard / Réglages -->
+    <string name="title_settings">IntruderSnap — Tableau de bord</string>
+    <string name="section_status">État</string>
+    <string name="status_accessibility_on">Service de verrouillage : activé</string>
+    <string name="status_accessibility_off">Service de verrouillage : désactivé — appuyez pour l\'activer</string>
+    <string name="status_camera_on">Permission caméra : accordée</string>
+    <string name="status_camera_off">Permission caméra : refusée — appuyez pour l\'accorder (indispensable à la capture)</string>
+    <string name="section_security">Sécurité</string>
+    <string name="action_change_pin">Changer le code PIN</string>
+    <string name="action_max_attempts">Échecs avant capture photo</string>
+    <string name="section_email">Envoi des photos par email</string>
+    <string name="label_smtp_host">Serveur SMTP (ex. smtp.gmail.com)</string>
+    <string name="label_smtp_port">Port (ex. 587)</string>
+    <string name="label_smtp_user">Adresse email expéditrice</string>
+    <string name="label_smtp_pass">Mot de passe d\'application</string>
+    <string name="label_recipient">Adresse email destinataire des alertes</string>
+    <string name="action_save_email">Enregistrer la configuration email</string>
+    <string name="action_test_email">Envoyer un email de test</string>
+    <string name="section_apps">Applications protégées</string>
+    <string name="action_choose_apps">Choisir les applications à protéger</string>
+    <string name="section_log">Journal</string>
+    <string name="action_view_log">Voir le journal des tentatives</string>
+    <string name="action_clear_log">Effacer le journal</string>
+    <string name="section_about">À propos</string>
+    <string name="action_review_consent">Revoir le fonctionnement de la capture photo</string>
+
+    <string name="title_protected_apps">Applications protégées</string>
+    <string name="protected_apps_empty">Aucune application installée trouvée.</string>
+
+    <string name="title_log">Journal des tentatives</string>
+    <string name="log_empty">Aucune tentative enregistrée pour le moment.</string>
+    <string name="log_success">Déverrouillage réussi</string>
+    <string name="log_failure">Échec de code</string>
+    <string name="log_capture_sent">Photo capturée et envoyée</string>
+    <string name="log_capture_failed">Photo capturée, échec de l\'envoi (en attente de réseau)</string>
+
+    <string name="toast_email_test_sent">Email de test envoyé.</string>
+    <string name="toast_email_test_failed">Échec de l\'envoi : %1$s</string>
+    <string name="toast_config_saved">Configuration enregistrée.</string>
+    <string name="toast_pin_saved">Code PIN enregistré.</string>
+</resources>

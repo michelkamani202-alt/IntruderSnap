@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Caméra pour la capture silencieuse de l'intrus -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+
+    <!-- Réseau pour l'envoi SMTP -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Service de premier plan pendant la capture + l'envoi -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+
+    <!-- Démarrage automatique après redémarrage du téléphone -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Affichage de la notification permanente de transparence (obligatoire sur Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Nécessaire pour l'AccessibilityService qui détecte l'app au premier plan -->
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:name=".IntruderSnapApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.IntruderSnap"
+        android:supportsRtl="true">
+
+        <!-- Écran de démarrage : route vers Setup ou Lock selon la config -->
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.IntruderSnap.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Écran de consentement obligatoire au premier lancement -->
+        <activity
+            android:name=".ui.ConsentActivity"
+            android:exported="false"
+            android:label="@string/title_consent"
+            android:theme="@style/Theme.IntruderSnap.NoActionBar" />
+
+        <!-- Création / modification du code PIN -->
+        <activity
+            android:name=".ui.SetupPinActivity"
+            android:exported="false"
+            android:label="@string/title_setup_pin"
+            android:theme="@style/Theme.IntruderSnap.NoActionBar" />
+
+        <!-- Écran de verrouillage PIN : affiché au-dessus de tout, plein écran -->
+        <activity
+            android:name=".ui.LockActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.IntruderSnap.NoActionBar" />
+
+        <!-- Configuration : PIN, email, SMTP, seuil, apps protégées -->
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_settings" />
+
+        <activity
+            android:name=".ui.ProtectedAppsActivity"
+            android:exported="false"
+            android:label="@string/title_protected_apps" />
+
+        <activity
+            android:name=".ui.LogActivity"
+            android:exported="false"
+            android:label="@string/title_log" />
+
+        <!-- Service d'accessibilité : détecte l'ouverture d'une app protégée -->
+        <service
+            android:name=".lock.AppLockAccessibilityService"
+            android:exported="false"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- Service de premier plan : capture + envoi email, hors UI thread -->
+        <service
+            android:name=".capture.IntruderCaptureService"
+            android:exported="false"
+            android:foregroundServiceType="camera" />
+
+        <receiver
+            android:name=".boot.BootReceiver"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
